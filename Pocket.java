@@ -9,13 +9,17 @@ public class Pocket {
    private int nCoins = 0;
    /** array to hold the coins. */
    private Coin[] coins = new Coin[10];
+   
+   /** Uses default constructor. */
     
    /**
     * adds a Coin to the front of the array.
     * @param c the Coin to be added
     */ 
    public void addCoin(Coin c) {
-      if (nCoins > 0) { relocateUp(); }
+      if (nCoins > 0) { 
+         relocateUp(); 
+      }
       coins[0] = c;
       nCoins++;
    }
@@ -24,10 +28,14 @@ public class Pocket {
    * Takes out the Coin at the front of the array.
    * Reduces count of Coins held.
    */
-   public void removeCoin() {
-      if (nCoins > 0) { relocateDown(); }
+   public Coin removeCoin() {
+      Coin c = coins[0];
+      if (nCoins > 0) { 
+         relocateDown(); 
+      }
       coins[nCoins] = null;
       nCoins--;
+      return c;
    }
    
    /**
@@ -37,6 +45,15 @@ public class Pocket {
    public Coin[] getCoins() {
       return coins;
    }
+   
+   /**
+   * Returns size of array of Coins.
+   * @return the size of the Pocket Array.
+   */
+   public int getNCoins() {
+      return nCoins;
+   }
+   
    
    /**
    * Moves all Coins in array up 
