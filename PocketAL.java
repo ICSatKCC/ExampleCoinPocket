@@ -42,4 +42,17 @@ public class PocketAL {
    public int getNumCoins() {
       return coins.size();
    }
+   
+   public static void main(String[] args) {
+      PocketAL myPocket = new PocketAL();
+      
+      myPocket.addCoin(new Penny());
+      myPocket.addCoin(new Dime());
+      myPocket.addCoin(new Quarter());
+      for(int i = 0; i < myPocket.getNumCoins(); i++) {
+         System.out.println(myPocket.coins.get(i));
+      }
+      
+   
+   }
 }
